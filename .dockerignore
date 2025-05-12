@@ -1,0 +1,14 @@
+# Ignore unnecessary files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.git
+.gitignore
+.venv
+env/
+venv/
+ENV/
+.env
+*.md
+.DS_Store
