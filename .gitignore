@@ -1,0 +1,5 @@
+Environment/
+env/
+__pycache__/
+netcdf_files
+.venv/

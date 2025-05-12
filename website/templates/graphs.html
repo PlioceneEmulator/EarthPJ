@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block graph_container %}
+<div class="graph-display">
+   <!-- <div class="graph-container-mpld3">
+      {{ graph | safe }}
+   </div> -->
+   <div class="graph-container-png">
+      {{ png | safe }}
+   </div>
+   <div class="pdf-link">
+      {{ pdf | safe }}
+   </div>
+
+{% if data_files %}
+<div class="data-download-section">
+   <h3>Download Data</h3>
+   <div class="download-buttons">
+      <a href="{{ url_for('views.download_file', filename=data_files.averages.replace('output/', '')) }}" 
+         class="download-button">Download Monthly Averages (CSV)</a>
+      <a href="{{ url_for('views.download_file', filename=data_files.std_dev.replace('output/', '')) }}" 
+         class="download-button">Download Standard Deviations (CSV)</a>
+   </div>
+</div>
+{% endif %}
+
+</div>
+{% endblock %}

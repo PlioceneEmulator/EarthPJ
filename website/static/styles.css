@@ -1,0 +1,639 @@
+:root {
+    --darkBlue: #192a37;
+    --blue: #45637A;
+    --blueOpaque: #45637a40;
+    --lightBlue: #a2b0bc;
+    --white: #f1f1f1;
+    --darkerBlue: #0b1218;
+    --maroon: #4f1a1a;
+}
+
+/* Give full background color */
+body {
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-image: linear-gradient(var(--darkBlue), var(--darkerBlue));
+}
+
+html {
+    height: 100%;
+}
+
+.bubble {
+    justify-content: center;
+    padding: 15px 20px 10px 20px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    width: fit-content;
+    border-radius: 30px;
+    transition: 0.8s;
+}
+
+.bubble:hover {
+    transition-duration: .8s;
+    background-color: var(--blueOpaque);
+}
+
+.center-vertical {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content {
+    width: 80%;
+    max-width: 1400px;
+    padding-top: 75px;
+    padding-bottom: 75px;
+    margin: auto;
+    font-family: Helvetica, sans-serif;
+    font-weight: 100;
+}
+
+.elevation-range {
+    width: 600px;
+    margin: 0px 15px 0px 15px;
+}
+
+.footer {
+    display: flex;
+    width: 100%;
+    height: 150px;
+    justify-content: center;
+    align-items: center;
+}
+
+.graph-container-mpld3 {
+    background-color: var(--lightBlue);
+    padding: 15px;
+    border-radius: 30px;
+}
+
+.graph-container-png {
+    display: flex;
+    justify-content: center;
+}
+
+.graph-png {
+    border-radius: 30px;
+}
+
+.graph-display {
+    display: grid;
+    grid-template-columns: 100%;
+    row-gap: 3%;
+    justify-content: center;
+    padding-top: 5%;
+}
+
+.warning {
+    justify-content: center;
+    padding: 15px 20px 15px 20px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    width: fit-content;
+    border-radius: 10px;
+    transition: 0.8s;
+    color: var(--white);
+    background-color: var(--maroon);
+}
+
+.options {
+    display: none;
+}
+
+.spatial-options {
+    display: none;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.section {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.global-plot-options {
+    display: none;  /* Hidden by default */
+}
+
+.coordinate-inputs {
+    margin: 15px auto;
+    max-width: 600px;
+    width: 100%;
+}
+
+.coordinate-inputs .row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0;
+    gap: 20px;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--white);
+    font-size: 14px;
+}
+
+.input-group input[type=number] {
+    width: 80px;
+    text-align: center;
+    color: var(--white);
+    background-color: transparent;
+    border: 1px solid var(--white);
+    border-radius: 4px;
+    padding: 5px;
+}
+
+.region-note {
+    color: #FFD700;
+    font-size: 12px;
+    text-align: center;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+.coordinate-inputs label {
+    color: var(--white);
+    margin-right: 10px;
+    margin-left: 20px;
+    min-width: 100px;
+}
+
+.coordinate-inputs input[type=number] {
+    width: 80px;
+    margin: 0 20px 0 0;
+}
+
+/* *************************** */
+/* DATA DOWNLOAD STYLING */
+/* *************************** */
+.data-download-section {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.data-download-section h3 {
+    color: var(--white);
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.download-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.download-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--darkBlue);
+    color: var(--white);
+    text-decoration: none;
+    border: 1px solid var(--white);
+    border-radius: 20px;
+    transition: background-color 0.3s;
+}
+
+.download-button:hover {
+    background-color: var(--blue);
+}
+
+/* *************************** */
+/* CREATE TEXT STYLING */
+/* *************************** */
+
+.subtitle {
+    text-align: center;
+    color: var(--white);
+    font-size: 18px;
+    font-weight: 300;
+    margin-bottom: 10px;
+}
+
+.subtitle-small {
+    text-align: center;
+    color: var(--lightBlue);
+    font-size: 14px;
+    font-weight: 300;
+    margin: 15px 0 5px 0;
+}
+
+.text {
+    color: var(--white);
+    font-family: Helvetica, sans-serif;
+    font-weight: 100;
+    font-size: 14px;
+}
+
+.title {
+    text-align: center;
+    color: var(--white);
+    font-size: 75px;
+    font-weight: 100;
+}
+
+/* *************************** */
+/* CREATE MODEL BUTTON STYLING */
+/* *************************** */
+
+/* Style the button - similar to the selection labels but a bit larger */
+.button {
+    border: 1px solid white;
+    border-radius: 20px;
+    font-size: 18px;
+    padding: 8px 25px;
+    text-align: center;
+    color: var(--white);
+    background: var(--darkBlue);
+    margin: 10px;
+    transition-duration: 0.6s;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+/* Double arrow float in from right when users hovers */
+.button:hover {
+    background: var(--blue);
+    padding-right: 35px;
+    padding-left: 15px;
+}
+
+.button:hover:after {
+    opacity: 1;
+    right: 13px;
+}
+
+.button:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 7px;
+    right: -35px;
+    transition: 0.5s
+}
+
+/* While the button is being clicked */
+.button:active {
+    background: var(--lightBlue);
+}
+
+/* *********************** */
+/* SELECTION LABEL STYLING */
+/* *********************** */
+
+/* Selection buttons should be centered within container and wrap if too wide */
+
+.pdf-link {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.color-selection,
+.radio-selection,
+.check-selection {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* Remove display of default radio buttons and checkboxes */
+.color-selection input[type="radio"],
+.radio-selection input[type="radio"],
+.check-selection input[type="checkbox"] {
+    display: none;
+}
+
+/* Style the graph and month selection labels */
+.radio-selection label,
+.check-selection label,
+.pdf-link a {
+    text-decoration: none;
+    display: inline-block;
+    border: 1px solid white;
+    border-radius: 20px;
+    font-size: 16px;
+    padding: 8px 18px;
+    background: var(--darkBlue);
+    color: var(--white);
+    margin: 10px;
+    cursor: pointer;
+}
+
+/* Style the color selection labels separately - need different background and border for these */
+.color-selection label {
+    display: inline-block;
+    border-radius: 2px;
+    height: 32px;
+    width: 80px;
+    color: var(--white);
+    margin: 10px;
+    cursor: pointer;
+    border: 3px solid transparent;
+    background-image: var(--gradient);
+    background-position: -3px;
+    background-size: calc(100% + 6px);
+}
+
+/* Style the buttons when hovered over by the user */
+.radio-selection label:hover,
+.check-selection label:hover,
+.pdf-link a:hover {
+    background: var(--blue);
+    transition-duration: 0.5s;
+}
+
+.color-selection label:hover {
+    border: 3px solid var(--white);
+    transition-duration: 0.5s;
+    box-shadow: inset 0px 0px 10px var(--white);
+}
+
+/* Style the labels once selected by the user */
+.radio-selection input[type="radio"]:checked+label,
+.check-selection input[type="checkbox"]:checked+label {
+    background: var(--white) !important;
+    color: var(--darkBlue) !important;
+}
+
+.color-selection input[type="radio"]:checked+label {
+    border: 3px solid var(--white);
+    transition-duration: 0.5s;
+    box-shadow: inset 0px 0px 20px var(--white);
+}
+
+
+/* ******************** */
+/* NUMBER INPUT STYLING */
+/* ******************** */
+
+input[type=number] {
+    color: var(--white);
+    font-family: Helvetica, sans-serif;
+    font-weight: 100;
+    font-size: 14px;
+    height: 36px;
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 10px;
+    width: 60px;
+    padding-left: 10px;
+    background-color: rgb(0, 0, 0, 0);
+    border: 0px;
+    border-bottom: 1px solid var(--white);
+}
+
+/* ********************** */
+/* RANGE SELECTOR STYLING */
+/* ********************** */
+
+/* Made with assistance from: */
+/* https: //www.cssportal.com/style-input-range/ */
+
+input[type=range] {
+    height: 36px;
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 10px 0;
+    width: 100%;
+    background-color: rgb(0, 0, 0, 0);
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 9px;
+    cursor: pointer;
+    animation: 0.2s;
+    box-shadow: 0px 0px 0px #000000;
+    background: var(--blue);
+    border-radius: 25px;
+    border: 0px solid #000000;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    box-shadow: 0px 0px 0px #000000;
+    border: 0px solid #000000;
+    height: 28px;
+    width: 14px;
+    border-radius: 7px;
+    background: var(--lightBlue);
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -10.5px;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: var(--blue);
+}
+
+input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 9px;
+    cursor: pointer;
+    animation: 0.2s;
+    box-shadow: 0px 0px 0px #000000;
+    background: var(--blue);
+    border-radius: 25px;
+    border: 0px solid #000101;
+}
+
+input[type=range]::-moz-range-thumb {
+    box-shadow: 0px 0px 0px #000000;
+    border: 0px solid #000000;
+    height: 28px;
+    width: 14px;
+    border-radius: 7px;
+    background: var(--lightBlue);
+    cursor: pointer;
+}
+
+input[type=range]::-ms-track {
+    width: 100%;
+    height: 9px;
+    cursor: pointer;
+    animation: 0.2s;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
+
+input[type=range]::-ms-fill-lower {
+    background: var(--blue);
+    border: 0px solid #000000;
+    border-radius: 50px;
+    box-shadow: 0px 0px 0px #000000;
+}
+
+input[type=range]::-ms-fill-upper {
+    background: var(--blue);
+    border: 0px solid #000000;
+    border-radius: 50px;
+    box-shadow: 0px 0px 0px #000000;
+}
+
+input[type=range]::-ms-thumb {
+    margin-top: 1px;
+    box-shadow: 0px 0px 0px #000000;
+    border: 0px solid #000000;
+    height: 28px;
+    width: 14px;
+    border-radius: 7px;
+    background: var(--lightBlue);
+    cursor: pointer;
+}
+
+input[type=range]:focus::-ms-fill-lower {
+    background: var(--blue);
+}
+
+input[type=range]:focus::-ms-fill-upper {
+    background: var(--blue);
+}
+
+/* ************************************* */
+/* RANGE SELECTOR TICKS & NUMBER STYLING */
+/* ************************************* */
+
+.tick {
+    width: 1.5px;
+    height: 8px;
+    border-radius: 2px;
+    background-color: var(--white);
+}
+
+.ticks {
+    display: flex;
+    justify-content: space-around;
+    margin-top: -7px;
+    width: 605px;
+}
+
+.tick-num {
+    width: 20px;
+    font-size: 12px;
+    text-align: center;
+    color: var(--white);
+}
+
+.tick-nums {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 5px;
+    width: 605px;
+}
+
+/* ********************************* */
+/* PERCENTAGE CHANGE TOGGLE STYLING */
+/* ********************************* */
+
+/* Container for the percentage change option */
+.difference-options {
+    transition: all 0.3s ease;
+}
+
+.difference-options .bubble {
+    min-width: 200px;
+}
+
+/* Toggle switch container */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    margin: 10px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--darkBlue);
+    border: 1px solid var(--white);
+    transition: .4s;
+}
+
+/* Slider circle */
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 3px;
+    bottom: 3px;
+    background-color: var(--white);
+    transition: .4s;
+}
+
+/* Slider active state */
+input:checked + .slider {
+    background-color: var(--blue);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* Rounded slider */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* Toggle label styling */
+.toggle-label {
+    color: var(--white);
+    font-size: 14px;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+/* Container for toggle and label */
+.toggle-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+/* Hover effects */
+.switch:hover .slider {
+    border-color: var(--lightBlue);
+}
+
+.switch:hover .slider:before {
+    box-shadow: 0 0 4px var(--lightBlue);
+}

@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: climate-models
+    env: python
+    region: oregon
+    plan: free
+    buildCommand: |
+      apt-get update && apt-get install -y \
+        libproj-dev \
+        proj-data \
+        proj-bin \
+        libgeos-dev \
+        libgeos++-dev \
+        libhdf5-dev \
+        libnetcdf-dev \
+        python3-dev
+      pip install --upgrade pip
+      pip install -r requirements.txt
+    startCommand: gunicorn webapp:app
+    envVars:
+      - key: FLASK_APP
+        value: webapp.py
+      - key: PYTHON_VERSION
+        value: 3.9
